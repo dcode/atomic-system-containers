@@ -10,7 +10,7 @@ LABEL summary="The open-vm-tools guest agent" \
 ENV SYSTEMD_IGNORE_CHROOT=1
 
 RUN dnf -y --setopt=tsflags=nodocs --setopt=override_install_langs=en_US.utf8 --setopt=install_weak_deps=False install file open-vm-tools net-tools iproute systemd -x gcc && \ 
-dnf clean all && echo 'LANG="en_US.UTF-8"' | tee /etc/locale.conf
+dnf clean all
 
 COPY service.template config.json.template /exports/
 
